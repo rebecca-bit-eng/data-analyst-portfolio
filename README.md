@@ -4,7 +4,7 @@
 
 ## 👋 About Me
 
-Aspiring Data Analyst with strong skills in Python, SQL, and visualization tools. Passionate about turning data into actionable business insights.
+Data Analyst with strong skills in Python, SQL, and visualization tools. Passionate about turning data into actionable business insights.
 
 ## 🛠 Skills
 
