@@ -22,8 +22,8 @@ Aspiring Data Analyst with strong skills in Python, SQL, Excel/Power BI, and tur
 | [05 SQL Portfolio](projects/05-sql-portfolio) | Advanced SQL queries and database modeling | SQL, PostgreSQL |
 
 ## Contact
-- LinkedIn: [your-link]
-- Email: your@email.com
+- LinkedIn: [link]
+- Email: roserebeccaa1@gmail.com
 
 ---
 
