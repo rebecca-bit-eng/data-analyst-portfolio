@@ -1,42 +1,67 @@
-# 01 - Sales Performance Dashboard
+# Sales Performance Dashboard
 
-**Business Value**: Identified key drivers of profit and built a forecasting model to support data-driven inventory and marketing decisions.
+[Back to portfolio](../../README.md) · [Black Rock Data](https://github.com/rebecca-bit-eng/BlackRockData)
 
-![Dashboard Preview](visualizations/dashboard_preview.png)
+A Streamlit prototype for exploring sales performance across regions and product categories.
 
-## Business Problem
-The Superstore is losing visibility into sales trends and wants to optimize performance across regions and categories.
+**Status:** dashboard code and a CSV are committed. The data setup needs resolving before the app can run as documented. Forecasting, validated analytical findings and a dashboard preview are not yet available.
 
-## Objectives
-- Perform comprehensive EDA
-- Identify trends, seasonality, and top performers
-- Build sales forecast
-- Create interactive dashboard for stakeholders
+## Business question
 
-## Tech Stack
-- Python, Pandas, NumPy
-- Plotly, Seaborn
-- Prophet (Forecasting)
-- Streamlit (Dashboard)
+How do sales trends and category profitability vary across regions, and which areas warrant further investigation?
 
-## Key Insights
-- Technology category drives highest profit but Office Supplies has highest volume
-- East region underperforms in certain segments
-- Strong seasonality in Q4
+## Available implementation
 
-## Business Recommendations
-1. Focus marketing budget on high-margin Technology sub-categories
-2. Investigate causes of low performance in East region
-3. Use forecast to optimize stock levels ahead of peak seasons
+The [dashboard source](dashboard/app.py) includes:
 
-## How to Run
+- a regional multiselect filter;
+- total sales, total profit and profit-margin metrics;
+- an order-row count labelled “Orders”;
+- a sales trend chart and profit-by-category bar chart.
+
+**Tools:** Python, Pandas, Plotly and Streamlit. Prophet is imported, but the forecast tab currently contains placeholder text.
+
+## Review the work
+
+| File | Purpose |
+|---|---|
+| [dashboard/app.py](dashboard/app.py) | Dashboard implementation |
+| [data/train.csv](data/train.csv) | Committed dataset; compatibility with the app must be checked |
+| [requirements.txt](requirements.txt) | Python dependencies |
+
+The EDA notebook is currently empty. No saved analysis supports category rankings, regional performance conclusions or seasonal findings yet.
+
+## Local setup and known limitations
+
+From the repository root:
+
 ```bash
-# 1. Install dependencies
-pip install -r requirements.txt
+cd projects/01-sales-dashboard
+python -m pip install -r requirements.txt
+```
 
-# 2. Run the dashboard
+Before launching, resolve these requirements:
+
+1. The app reads `data/superstore.csv`, while this repository supplies `data/train.csv`. Verify the source and schema before changing the filename or loader.
+2. The app requires `Order Date`, `Region`, `Sales`, `Profit` and `Category` columns. Profit calculations require a dataset containing `Profit`.
+3. Confirm date parsing against the selected dataset.
+4. The “Orders” metric counts rows, which may represent order lines rather than distinct orders. Empty selections and zero sales also need handling.
+
+Once compatible data is configured:
+
+```bash
 streamlit run dashboard/app.py
 ```
 
-## Dataset
-Superstore Sales - Download from Kaggle and place in `data/` folder.
+These commands describe the intended setup; a successful end-to-end run has not been verified.
+
+## Next deliverables
+
+- Resolve dataset provenance and compatibility.
+- Add a populated EDA notebook with validated findings and limitations.
+- Correct order-count semantics and handle empty or zero-sales selections.
+- Add a dashboard screenshot and implement and evaluate forecasting before claiming forecast results.
+
+## Connection to Black Rock Data
+
+This personal portfolio prototype explores sales reporting relevant to Black Rock Data's business intelligence services. For the company's public research workflow, see [Kenya Household Welfare & Labour Intelligence](https://github.com/rebecca-bit-eng/BlackRockData/tree/main/projects/kchs-2022).
